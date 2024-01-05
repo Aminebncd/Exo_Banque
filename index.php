@@ -56,23 +56,26 @@ $compteHuit = new CompteBancaire("compte etranger", 920, "Francs Suisses", $Arth
 
 //////////////////////TEST DES FONCTIONS DEBIT/CREDIT/VIREMENT
 echo $ArthurMorgan->infosTitulaire();
-
 echo $mohamedAmine->infosTitulaire();
+
+
+//test creditage
 $compteUn->crediter(1500);
 echo $compteUn->getInfos();
 
+// test debitage
 $compteUn->debiter(3000);
 echo $compteUn->getInfos();
 
+//test solde insuffisant
 $compteUn->debiter(3000);
 echo $compteUn->getInfos();
 
-
+//test virements
 $compteQuatre->virerVers($compteUn, 5000);
-
 echo $compteUn->getInfos();
 
-
+// test virement solde insuffisant
 $compteQuatre->virerVers($compteUn, 500000000);
 
 
